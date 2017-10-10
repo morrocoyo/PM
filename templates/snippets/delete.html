@@ -1,0 +1,18 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>   
+    <link rel="stylesheet" type='text/css'>
+    </head>
+
+        <h2> Eliminar Análisis</h2>
+        <form method="post" action='http://127.0.0.1:8000/delete'> 
+            {% csrf_token %}
+            <input type='hidden' name='id' value='{{ id }}'> 
+            <p> Está seguro que quiere borrar el post?</p>
+            <input type="submit" value="Eliminar">
+        </form>
+
+</html>
+

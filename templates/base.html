@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title> {% block head_title %}SubT - Amb {% endblock head_title %}</title>
+    <link rel="stylesheet" href="main.css">
+    <center>{% include 'snippets/nav.html' %}</center> 
+    <h2 id="top">       
+    {% include 'snippets/css.html' %}
+    </h2> 
+    </head>
+    <body>    
+    <!--<div class ='container' >-->
+
+        {% block content%}
+        
+        <twitter-widget>
+        <div align="right">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+            <h2 id="top">
+                {% if bool_item %}
+                <figcaption><center>Visitante número {{num}}</center></figcaption>
+                {% endif %}
+            </h2>
+        {% endblock content%}
+
+    <!--</div>--> 
+    {% include 'snippets/js.html' %}
+    </body>
+</html>
+
+

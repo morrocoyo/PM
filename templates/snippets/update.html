@@ -1,0 +1,20 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>   
+    <link rel="stylesheet" type='text/css'>
+    </head>
+
+        <h2> Actualizar análisis </h2>
+        <form method="post" action='http://127.0.0.1:8000/update'> 
+            {% csrf_token %}
+            <input type='hidden' name='id' value='{{ post.id }}'> 
+            <input type='text' name='title' placeholder='Título del análisis' value='{{post.title}}' required><br>
+            <input type='text' name='last_update' value='{{post.last_update}}' required><br>S
+            <textarea name='contenido' placeholder='Análisis' rows=5 cols=50 required> {{post.content}} </textarea> 
+            <input type="submit" value="Guradar Cambios">
+
+        </form>
+
+</html>

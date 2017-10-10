@@ -1,0 +1,15 @@
+<h2> Últimos Artículos </h2>
+    <form method="POST" action='http://127.0.0.1:8000/'>
+        {% csrf_token %}
+        <ul>
+            <li> 
+                <input type='text' name='tile' placeholder='Título del análisis' required>
+            </li>
+            <li>
+                <textarea neme='contenido' placeholder='Nuevo análisis' rows=5 cols=50 required> </textarea>
+            </li>
+            <li>
+                <input type="submit" value="Publicar">
+            </li>
+        </ul>
+    </form>

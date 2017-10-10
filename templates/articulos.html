@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+<!--{% load material_form %}-->
+{% block head_title %}Artículos || {{block.super}} {% endblock head_title %}
+    {% block content %}
+        <head>
+            <title> Artículos </title>
+        </head>
+        <!--{% include 'snippets/update.html' %}
+        {% include 'snippets/delete.html' %} -->
+        <form method='post' action='http://127.0.0.1:8000/articulos/'>
+            {% csrf_token %}
+            <input type='text' name='title' placeholder='Título' required> <br>
+            <textarea name='content' placeholder='Contenido' rows=5 cols=50 rquired>
+            </textarea>
+            <input type='submit' value='Add Post'>
+        </form>
+        <hr>
+        <!-- Ciclo sobre los posts -->
+        {% for post in Posts %}
+            <h2> {{ post.title }} </h2>
+            <p> {{ post.last_update}} </p>
+            <p> {{ post.content}} </p>
+
+        <form method='get' action='http://127.0.0.1:8000/update'>
+            <input type="hidden" name='id' value='{{ post.id }}'> 
+            <input type='hidden' name='title' value='{{ post.title }}'>
+            <input type='hidden' name='last_update' value='{{ post.last_update }}'>
+            <input type='hidden' name='content' value='{{ post.content }}'>
+            <input type='submit' name='' value='update'>
+        </form>
+        <form method='get' action='http://127.0.0.1:8000/delete'>
+            <input type='hidden' name='id' value='{{post.id}}'>
+            <input type='submit' name='' value='delete'>
+        </form>
+        {% endfor %}
+    {% endblock content %}

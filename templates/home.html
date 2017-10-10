@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block head_title %}{{block.super}} {% endblock head_title %}
+{% block content %}
+{{ block.super }}
+    <head>
+        <title>SubT - Ambiente</title>
+        <link rel="stylesheet" href="main.css">
+	</head>
+    <body>
+        {% include 'snippets/css.html' %}      
+        <p>
+        <twitter-widget>
+        <a class="twitter-timeline" data-link-color="#006600" href="https://twitter.com/MorroFindValue/lists/mfv">A Twitter List by MorroFindValue</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        {% for item in List %}
+            <twitter-widget>
+            <center><blockquote class="twitter-tweet" data-link-color="#006600" lang="es"><p lang="es" dir="ltr">&quot;{{ item.2 }}&quot;. </p>&mdash; {{ item.0 }} (@{{ item.1 }}) <a href={{ item.7 }}>{{ item.8 }}</a></blockquote></center> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>        
+        {% endfor %}
+        </p>
+
+
+        {% for some_item in some_list %}
+            {% if some_item|divisibleby:"2" %}
+                Numero par:
+            {% endif %}
+
+            {{some_item}} </br> 
+
+        {% endfor %}
+        
+        <center><blockquote class="twitter-tweet" data-link-color="#006600" lang="es"><p lang="es" dir="ltr">El ejido Fresnillo <a href="https://twitter.com/hashtag/Zacatecas?src=hash">#Zacatecas</a> alcanzó 90% de sobrevivencia en reforestación de 38 hectáreas realizada en 2016. Lee ➡️<a href="https://t.co/hAmpxmiWRK">https://t.co/hAmpxmiWRK</a> <a href="https://t.co/03L4Ekv84N">pic.twitter.com/03L4Ekv84N</a></p>&mdash; CONAFOR (@CONAFOR) <a href="https://twitter.com/CONAFOR/status/889560964567363584">July 24, 2017</a></blockquote> </center><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        
+    </body>
+{% endblock content %}
